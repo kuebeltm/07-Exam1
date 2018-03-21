@@ -2,8 +2,8 @@
 Exam 1, problem 1.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Todd Kuebelbeck.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -13,7 +13,7 @@ def main():
 
 
 ###############################################################################
-# TODO: 2.  READ the doc-string for the   product_of_digits   function below.
+# DONE: 2.  READ the doc-string for the   product_of_digits   function below.
 #           Ask your instructor for help if you do not understand it.
 #
 #   Once you are confident that you understand the doc-string
@@ -196,7 +196,7 @@ def problem1a(a, b, threshold):
               returns 109 + 110 + 111 + 112 + 120 + 121 + 130,  which is 813
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # IMPORTANT NOTE
@@ -205,11 +205,17 @@ def problem1a(a, b, threshold):
     #     1-argument version of the RANGE statement to solve this problem.
     # -------------------------------------------------------------------------
 
+    accum =0
+
+    for k in range(a,b+1,1):
+        if product_of_digits(k) < threshold:
+            accum = accum + k
+    return accum
 
 def run_test_problem1b():
     """ Tests the   problem1b   function. """
     # -------------------------------------------------------------------------
-    # TODO: 4. Implement at least 4 tests of the problem1b function.
+    # DONE: 4. Implement at least 4 tests of the problem1b function.
     #   Note that you CANNOT use  problem1b(1)  or  problem1b(2)  as tests, per
     #   the specification below that says that the argument must be at least 3.
     # -------------------------------------------------------------------------
@@ -217,6 +223,23 @@ def run_test_problem1b():
     print('--------------------------------------------------')
     print('Testing the   problem1b   function:')
     print('--------------------------------------------------')
+
+    expected = 682
+    print('Test 1:')
+    print('Expected is: ', expected, ' acutal is: ', problem1b(8))
+
+    expected = 64
+    print('Test 2:')
+    print('Expected is: ', expected, ' acutal is: ', problem1b(4))
+
+    expected = 276
+    print('Test 3:')
+    print('Expected is: ', expected, ' acutal is: ', problem1b(6))
+
+    expected = 375
+    print('Test 1:')
+    print('Expected is: ', expected, ' acutal is: ', problem1b(7))
+
 
 
 ###############################################################################
@@ -239,10 +262,11 @@ def problem1b(r):
            and the sum of the above numbers is 682
     """
     # -------------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #          See the IMPORTANT NOTE just before the DEF above.
     # -------------------------------------------------------------------------
 
+    return problem1a(r, (r**2), r+1)
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
