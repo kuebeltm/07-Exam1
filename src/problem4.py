@@ -2,9 +2,9 @@
 Exam 1, problem 4.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
-
+         their colleagues and Todd Kuebelbeck.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
+import math
 
 def main():
     """ Calls the   TEST   functions in this module. """
@@ -139,6 +139,12 @@ def problem4(m):
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
 
+    accum = 0
+
+    for k in range(2, m, 1):
+        if m%k == 0:
+            accum = accum + 1
+    return accum
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.

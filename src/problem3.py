@@ -2,10 +2,11 @@
 Exam 1, problem 3.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Todd Kuebelbeck.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
+import math
 
 
 def main():
@@ -96,6 +97,20 @@ def problem3(rect, n, window):
     # TODO: 2. Implement and test this function, TESTING each step as you go.
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
+
+    rect.attach_to(window)
+
+    initial = rg.Point(rect.corner_2.x, rect.corner_1.y)
+
+    common_radius = rect.get_height()
+    circle = rg.Circle(initial, common_radius)
+    circle.attach_to(window)
+
+    for k in range(n-1):
+        newCenter = rg.Point((initial.x + common_radius*2*math.cos((math.pi()/4)))*k, (initial.y - common_radius*2*math.sin((math.pi()/4)))*k)
+        newCircle = rg.Circle(newCenter, common_radius)
+        newCenter.attach_to(window)
+    window.render()
 
 
 # -----------------------------------------------------------------------------
