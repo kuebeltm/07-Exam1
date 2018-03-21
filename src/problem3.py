@@ -100,16 +100,20 @@ def problem3(rect, n, window):
 
     rect.attach_to(window)
 
-    initial = rg.Point(rect.corner_2.x, rect.corner_1.y)
+    initialCircleCenter = rect.get_lower_right_corner()
 
-    common_radius = rect.get_height()
-    circle = rg.Circle(initial, common_radius)
+    radius = rect.get_height()/2
+    diameter = radius * 2
+    circle = rg.Circle(initialCircleCenter,radius)
     circle.attach_to(window)
 
-    for k in range(n-1):
-        newCenter = rg.Point((initial.x + common_radius*2*math.cos((math.pi()/4)))*k, (initial.y - common_radius*2*math.sin((math.pi()/4)))*k)
-        newCircle = rg.Circle(newCenter, common_radius)
-        newCenter.attach_to(window)
+    # DEBUGGING CONSOLE PRINT... IGNORE... print('FOR DEBUGGING', initialCircleCenter.x, initialCircleCenter.y, math.pi)
+
+    for k in range(n):
+        center = rg.Point(((initialCircleCenter.x) + (diameter * math.cos((math.pi)/4)*k)), ((initialCircleCenter.y) + (diameter * math.sin((math.pi)/4)*k)))
+        newCircle = rg.Circle(center, radius)
+
+        newCircle.attach_to(window)
     window.render()
 
 
